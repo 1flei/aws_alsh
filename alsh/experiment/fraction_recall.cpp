@@ -93,7 +93,7 @@ bool FRACTION_RECALL_SLALSH_REGISTED = MyCallbackRegister::registerCallback("fra
         };
         const auto hq = [&](const float* query, const float*weight) -> vector<uint64_t>{
             //weight unused
-            return slalsh.hash_data(query);
+            return slalsh.hash_query(query, weight);
         };
         unique_ptr<FILE, decltype(&fclose)> fp(fopen(output_filename.c_str(), "w"), &fclose);
 
@@ -144,7 +144,7 @@ bool FRACTION_RECALL_S2ALSH_REGISTED = MyCallbackRegister::registerCallback("fra
         };
         const auto hq = [&](const float* query, const float*weight) -> vector<uint64_t>{
             //weight unused
-            return s2alsh.hash_data(query);
+            return s2alsh.hash_query(query, weight);
         };
         unique_ptr<FILE, decltype(&fclose)> fp(fopen(output_filename.c_str(), "w"), &fclose);
 

@@ -3,7 +3,7 @@ from weight_gen import *
 import os
 
 
-datasets = [MNIST784()]
+datasets = [MNIST784(), MovieLens(), Sift()]
 weights= ['identical', 'negative', 'uniform', 'binary', 'normal', 'onehot']
 
 def precisionRecallS2ALSH(datasets=datasets, weightsets=weights, U=3.1415, L=256, qnpercent=1):

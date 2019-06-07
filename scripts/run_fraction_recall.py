@@ -3,7 +3,7 @@ from weight_gen import *
 import os
 
 
-datasets = [MNIST784()]
+datasets = [MNIST784(), MovieLens(), Sift()]
 weights= ['identical', 'negative', 'uniform', 'binary', 'normal', 'onehot']
 
 def get_datahash_filename(dataset_name, weight_name, method_name, params):
@@ -15,7 +15,7 @@ def fractionRecallS2ALSH(datasets=datasets, weightsets=weights, U=3.14, qnpercen
     def getArgs(ds, ws):
         params= 'U%f'%(U, )
         return '-n %s -q %s -d %s -D %s -Q %s -O %s -W %s -G %s -U %f --data_hash_filename %s --query_hash_filename %s'%\
-        (ds.n, int(ds.qn*qnpercent), ds.d, ds.ds, ds.qs, ws.of+'_fraction_recall_s2aslh.out', ws.ws, ws.gt, U, 
+        (ds.n, int(ds.qn*qnpercent), ds.d, ds.ds, ds.qs, ws.of+'_fraction_recall_s2alsh.out', ws.ws, ws.gt, U, 
         get_datahash_filename(ds.name, ws.name, 's2alsh', params), 
         get_queryhash_filename(ds.name, ws.name, 's2alsh', params))
     
@@ -32,7 +32,7 @@ def fractionRecallSLALSH(datasets=datasets, weightsets=weights, r=4, U=3.14, qnp
     def getArgs(ds, ws):
         params= 'U%fr%f'%(U, r)
         return '-n %s -q %s -d %s -D %s -Q %s -O %s -W %s -G %s -r %f -U %f --data_hash_filename %s --query_hash_filename %s'%\
-        (ds.n, int(ds.qn*qnpercent), ds.d, ds.ds, ds.qs, ws.of+'_fraction_recall_slaslh.out', ws.ws, ws.gt, r, U, 
+        (ds.n, int(ds.qn*qnpercent), ds.d, ds.ds, ds.qs, ws.of+'_fraction_recall_slalsh.out', ws.ws, ws.gt, r, U, 
         get_datahash_filename(ds.name, ws.name, 'slalsh', params), 
         get_queryhash_filename(ds.name, ws.name, 'slalsh', params))
     

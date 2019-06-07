@@ -3,7 +3,7 @@ from weight_gen import *
 import os
 import sys
 
-datasets = [MNIST784()]
+datasets = [MNIST784(), MovieLens(), Sift()]
 weights= ['identical', 'negative', 'uniform', 'binary', 'normal', 'onehot']
 
 def run_ground_truth(datasets=datasets, weightsets=weights):
