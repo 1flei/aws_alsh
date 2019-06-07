@@ -1,7 +1,7 @@
 # Sublinear Time Nearest Neighbor Search over Generalized Weighted Space
 
 Paper accepted by ICML 2019
-** Sublinear Time Nearest Neighbor Search over Generalized Weighted Space. ICML 2019: 3773-3781, Yifan Lei, Qiang Huang, Mohan S. Kankanhalli, Anthony K. H. Tung **
+**Sublinear Time Nearest Neighbor Search over Generalized Weighted Space. ICML 2019: 3773-3781, Yifan Lei, Qiang Huang, Mohan S. Kankanhalli, Anthony K. H. Tung**
 
 To build the project, use the following instructions:
 
