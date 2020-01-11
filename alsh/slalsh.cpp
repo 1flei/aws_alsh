@@ -41,7 +41,7 @@ std::vector<uint64_t> SLALSH::hash_data(const Scalar* data)
 				double Ux = (x-minx)/(maxx-minx)*U;
 				double cosUx = cos(Ux);
 				double sinUx = sin(Ux);
-				projection += cosUx*a[l][i] + sinUx*a[l][i+dim];
+				projection += cosUx*a[l*K+k][i] + sinUx*a[l*K+k][i+dim];
             }
             projection += b[l];
 
@@ -69,7 +69,7 @@ std::vector<uint64_t> SLALSH::hash_query(const Scalar* query, const Scalar* weig
 				double cosUq = lambda*w*cos(Uq);
 				double sinUq = lambda*w*sin(Uq);
 
-				projection += cosUq*a[l][i] + sinUq*a[l][i+dim];
+				projection += cosUq*a[l*K+k][i] + sinUq*a[l*K+k][i+dim];
             }
             projection += b[l];
 

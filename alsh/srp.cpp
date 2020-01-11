@@ -34,7 +34,7 @@ std::vector<uint64_t> SRPLSH::hash_data(const Scalar* data)
             double projection = 0.;
             for(int i=0;i<dim;i++){
                 double x = data[i];
-                projection += x*a[l][i];
+                projection += x*a[l*K+k][i];
             }
             uint64_t sigkl = projection>0;
 

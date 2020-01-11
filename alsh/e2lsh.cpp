@@ -37,7 +37,7 @@ std::vector<uint64_t> E2LSH::hash_data(const Scalar* data)
             double projection = 0.;
             for(int i=0;i<dim;i++){
                 double x = data[i];
-                projection += x*a[l][i];
+                projection += x*a[l*K+k][i];
             }
             projection += b[l];
             int projection_bucket = projection/r;

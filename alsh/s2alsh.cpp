@@ -38,7 +38,7 @@ std::vector<uint64_t> S2ALSH::hash_data(const Scalar* data)
 				double Ux = (x-minx)/(maxx-minx)*U;
 				double cosUx = cos(Ux);
 				double sinUx = sin(Ux);
-				projection += cosUx*a[l][i] + sinUx*a[l][i+dim];
+				projection += cosUx*a[l*K+k][i] + sinUx*a[l*K+k][i+dim];
             }
 
             sigl = hash_combine(sigl, uint64_t(projection > 0));
@@ -61,7 +61,7 @@ std::vector<uint64_t> S2ALSH::hash_query(const Scalar* query, const Scalar* weig
 				double Uq = (x-minx)/(maxx-minx)*U;
 				double cosUq = w*cos(Uq);
 				double sinUq = w*sin(Uq);
-				projection += cosUq*a[l][i] + sinUq*a[l][i+dim];
+				projection += cosUq*a[l*K+k][i] + sinUq*a[l*K+k][i+dim];
             }
 
             sigl = hash_combine(sigl, uint64_t(projection > 0));
