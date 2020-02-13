@@ -80,7 +80,7 @@ bool PRECISION_RECALL_S2ALSH_REGISTED = MyCallbackRegister::registerCallback("pr
         };
         const auto hq = [&](const float* query, const float*weight) -> vector<uint64_t>{
             //weight unused
-            return s2alsh.hash_data(query);
+            return s2alsh.hash_query(query, weight);
         };
 
         fprintf(fp.get(), "----s2alsh: L=%d, U=%f----\n", L, U);
@@ -124,7 +124,7 @@ bool PRECISION_RECALL_SLALSH_REGISTED = MyCallbackRegister::registerCallback("pr
         };
         const auto hq = [&](const float* query, const float*weight) -> vector<uint64_t>{
             //weight unused
-            return slalsh.hash_data(query);
+            return slalsh.hash_query(query, weight);
         };
 
         fprintf(fp.get(), "----slalsh: L=%d, U=%f, r=%f----\n", L, U, r);
